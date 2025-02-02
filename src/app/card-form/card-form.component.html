@@ -1,19 +1,7 @@
 == {{ cardForm.controls.name.errors | json }} ==
 <form [formGroup]="cardForm">
-  <input formControlName="name" />
+  <app-input [control]="cardForm.controls.name"></app-input>
 </form>
-@if (cardForm.controls.name.invalid && (cardForm.controls.name.touched ||
-cardForm.controls.name.dirty)) { @if
-(cardForm.controls.name.errors?.["required"]) {
-<small>*Name is a required field</small>
-} @if (cardForm.controls.name.errors?.["minlength"]) {
-<small>*Name must be at least
-  {{cardForm.controls.name.errors?.["minlength"].requiredLength}} characters
-  long</small>
-} @if (cardForm.controls.name.errors?.["forbiddenName"]) {
-<small>*{{cardForm.controls.name.errors?.["forbiddenName"]}}</small>
-} }
+
 <div>Form contents: {{ cardForm.value | json }}</div>
 <div>Form is valid: {{ cardForm.valid }}</div>
-
-<div>Test</div>

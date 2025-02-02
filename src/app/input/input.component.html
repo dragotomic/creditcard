@@ -1,0 +1,18 @@
+<input [formControl]="control" />
+@if (
+control.invalid
+&& (control.touched ||
+control.dirty))
+{
+@if (control.errors?.["required"]) {
+<small>*Name is a required field</small>
+}
+@if (control.errors?.["minlength"]) {
+<small>*Name must be at least
+  {{control.errors?.["minlength"].requiredLength}} characters
+  long</small>
+}
+@if (control.errors?.["forbiddenName"]) {
+<small>*{{control.errors?.["forbiddenName"]}}</small>
+}
+}

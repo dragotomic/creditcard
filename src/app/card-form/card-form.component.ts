@@ -13,7 +13,7 @@ export const forbiddenNameValidator = (
 ): ValidatorFn => {
   return (control: AbstractControl): ValidationErrors | null => {
     return forbiddenNames.includes(control.value)
-      ? { forbiddenName: 'Name is not allowed' }
+      ? { forbiddenName: 'Name ' + control.value + ' is not allowed' }
       : null;
   };
 };
